@@ -12,8 +12,8 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *thunderPath = @"/Applications/Thunder.app";
-        NSString *thunderPlugInsPath = @"/Applications/Thunder.app/Contents/PlugIns";
-        NSArray<NSString *> *thunderPlugIns = @[
+        NSString *thunderPluginsPath = @"/Applications/Thunder.app/Contents/PlugIns";
+        NSArray<NSString *> *thunderPlugins = @[
             // @"Thunder Extension.appex",
             @"activitycenter.xlplugin",
             @"advertising.xlplugin",
@@ -45,18 +45,18 @@ int main(int argc, const char * argv[]) {
             return 0;
         }
         
-        for (NSString *plugIns in thunderPlugIns) {
-            NSString *plugInsPath = [thunderPlugInsPath stringByAppendingPathComponent:plugIns];
+        for (NSString *plugins in thunderPlugins) {
+            NSString *plugInsPath = [thunderPluginsPath stringByAppendingPathComponent:plugins];
             if (![fileManager fileExistsAtPath:plugInsPath]) {
                 NSLog(@"\"%@\" 已删除。", plugInsPath);
                 continue;
             }
             
-            NSError *err = nil;
-            BOOL result = [fileManager trashItemAtURL:[NSURL fileURLWithPath:plugInsPath] resultingItemURL:nil error:&err];
-            
-            if (err || !result) {
+            NSError *error = nil;
+            if (![fileManager trashItemAtURL:[NSURL fileURLWithPath:plugInsPath] resultingItemURL:nil error:&error]) {
                 NSLog(@"\"%@\" 删除失败。", plugInsPath);
+                NSLog(@"error = %@", error);
+                continue;
             }
             NSLog(@"\"%@\" 删除成功。", plugInsPath);
         }
