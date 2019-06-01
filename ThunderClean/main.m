@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HEPrint.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -41,26 +42,26 @@ int main(int argc, const char * argv[]) {
                                                 @"xlplayer.xlplugin"];
         
         if (![fileManager fileExistsAtPath:thunderPath]) {
-            NSLog(@"没有找到迅雷。");
+            HEPrintln(@"没有找到迅雷。");
             return 0;
         }
         
         for (NSString *plugins in thunderPlugins) {
             NSString *pluginsPath = [thunderPluginsPath stringByAppendingPathComponent:plugins];
             if (![fileManager fileExistsAtPath:pluginsPath]) {
-                NSLog(@"\"%@\" 已删除。", pluginsPath);
+                HEPrintln(@"\"%@\" 已删除。", pluginsPath);
                 continue;
             }
             
             NSError *error = nil;
             if (![fileManager trashItemAtURL:[NSURL fileURLWithPath:pluginsPath] resultingItemURL:nil error:&error]) {
-                NSLog(@"\"%@\" 删除失败。", pluginsPath);
-                NSLog(@"%@", error);
+                HEPrintln(@"\"%@\" 删除失败。", pluginsPath);
+                HEPrintln(@"%@", error);
                 continue;
             }
-            NSLog(@"\"%@\" 删除成功。", pluginsPath);
+            HEPrintln(@"\"%@\" 删除成功。", pluginsPath);
         }
-        NSLog(@"完成。");
+        HEPrintln(@"完成。");
     }
     return 0;
 }

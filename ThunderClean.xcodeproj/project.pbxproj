@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E28F6B7C2288643D0099E4A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E28F6B7B2288643D0099E4A4 /* main.m */; };
+		E2AC9EF522A21FF0007E8C2B /* HEPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AC9EF422A21FF0007E8C2B /* HEPrint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		E28F6B782288643D0099E4A4 /* ThunderClean */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ThunderClean; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28F6B7B2288643D0099E4A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2AC9EF322A21FF0007E8C2B /* HEPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEPrint.h; sourceTree = "<group>"; };
+		E2AC9EF422A21FF0007E8C2B /* HEPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEPrint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				E28F6B7B2288643D0099E4A4 /* main.m */,
+				E2AC9EF322A21FF0007E8C2B /* HEPrint.h */,
+				E2AC9EF422A21FF0007E8C2B /* HEPrint.m */,
 			);
 			path = ThunderClean;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AC9EF522A21FF0007E8C2B /* HEPrint.m in Sources */,
 				E28F6B7C2288643D0099E4A4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
