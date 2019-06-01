@@ -16,29 +16,29 @@ static void printf_worker(FILE *file, NSString *format, va_list arguments) {
 void HEPrint(NSString *format, ...) {
     va_list arguments;
     va_start(arguments, format);
-	printf_worker(stdout, format, arguments);
+    printf_worker(stdout, format, arguments);
     va_end(arguments);
 }
 
 void HEPrintln(NSString *format, ...) {
     va_list arguments;
     va_start(arguments, format);
-	format = [format stringByAppendingString:@"\n"];
-	printf_worker(stdout, format, arguments);
+    format = [format stringByAppendingString:@"\n"];
+    printf_worker(stdout, format, arguments);
     va_end(arguments);
 }
 
 void HEFprint(FILE *file, NSString *format, ...) {
     va_list arguments;
     va_start(arguments, format);
-	printf_worker(file, format, arguments);
+    printf_worker(file, format, arguments);
     va_end(arguments);
 }
 
 void HEFprintln(FILE *file, NSString *format, ...) {
     va_list arguments;
     va_start(arguments, format);
-	format = [format stringByAppendingString:@"\n"];
-	printf_worker(file, format, arguments);
+    format = [format stringByAppendingString:@"\n"];
+    printf_worker(file, format, arguments);
     va_end(arguments);
 }
