@@ -17,6 +17,7 @@ int main(int argc, const char * argv[]) {
                                                 @"activitycenter.xlplugin",
                                                 @"advertising.xlplugin",
                                                 // @"applications.xlplugin",
+                                                @"bbassistant.xlplugin",
                                                 // @"browserhelper.xlplugin",
                                                 // @"details.xlplugin",
                                                 @"featuredpage.xlplugin",
