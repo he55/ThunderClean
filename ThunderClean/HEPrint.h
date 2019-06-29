@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern void HEPrint(NSString *format, ...);
-extern void HEPrintln(NSString *format, ...);
-extern void HEFprint(FILE *file, NSString *format, ...);
-extern void HEFprintln(FILE *file, NSString *format, ...);
+void HEPrint(NSString *format, ...);
+void HEPrintln(NSString *format, ...);
+void HEFprint(FILE *file, NSString *format, ...);
+void HEFprintln(FILE *file, NSString *format, ...);

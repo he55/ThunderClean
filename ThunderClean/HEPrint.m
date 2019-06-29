@@ -8,37 +8,33 @@
 
 #import "HEPrint.h"
 
-static void printf_worker(FILE *file, NSString *format, va_list arguments) {
+#define __printf_ex(file, format, line)\
+va_list arguments;\
+va_start(arguments, (format));\
+printf_ex((file), (format), (line), arguments);\
+va_end(arguments);
+
+static void printf_ex(FILE *file, NSString *format, BOOL line, va_list arguments) {
+    if (line) {
+        format = [format stringByAppendingString:@"\n"];
+    }
+    
     NSString *msg = [[NSString alloc] initWithFormat:format arguments:arguments];
     fprintf(file, "%s", [msg UTF8String]);
 }
 
 void HEPrint(NSString *format, ...) {
-    va_list arguments;
-    va_start(arguments, format);
-    printf_worker(stdout, format, arguments);
-    va_end(arguments);
+    __printf_ex(stdout, format, NO);
 }
 
 void HEPrintln(NSString *format, ...) {
-    va_list arguments;
-    va_start(arguments, format);
-    format = [format stringByAppendingString:@"\n"];
-    printf_worker(stdout, format, arguments);
-    va_end(arguments);
+    __printf_ex(stdout, format, YES);
 }
 
 void HEFprint(FILE *file, NSString *format, ...) {
-    va_list arguments;
-    va_start(arguments, format);
-    printf_worker(file, format, arguments);
-    va_end(arguments);
+    __printf_ex(file, format, NO);
 }
 
 void HEFprintln(FILE *file, NSString *format, ...) {
-    va_list arguments;
-    va_start(arguments, format);
-    format = [format stringByAppendingString:@"\n"];
-    printf_worker(file, format, arguments);
-    va_end(arguments);
+    __printf_ex(file, format, YES);
 }
