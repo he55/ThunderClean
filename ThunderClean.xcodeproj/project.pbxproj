@@ -93,7 +93,7 @@
 		E28F6B702288643D0099E4A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = He55;
 				TargetAttributes = {
 					E28F6B772288643D0099E4A4 = {
@@ -107,6 +107,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = E28F6B6F2288643D0099E4A4;
 			productRefGroup = E28F6B792288643D0099E4A4 /* Products */;
@@ -123,8 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2AC9EF522A21FF0007E8C2B /* HEPrint.m in Sources */,
 				E28F6B7C2288643D0099E4A4 /* main.m in Sources */,
+				E2AC9EF522A21FF0007E8C2B /* HEPrint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +246,7 @@
 		E28F6B802288643D0099E4A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -253,6 +255,7 @@
 		E28F6B812288643D0099E4A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
