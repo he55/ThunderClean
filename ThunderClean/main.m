@@ -14,54 +14,61 @@ int main(int argc, const char * argv[]) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *thunderPath = @"/Applications/Thunder.app";
         NSString *thunderPluginsPath = @"/Applications/Thunder.app/Contents/PlugIns";
-        NSArray<NSString *> *thunderPlugins = @[// @"Thunder Extension.appex",
-                                                @"activitycenter.xlplugin",
-                                                @"advertising.xlplugin",
-                                                // @"applications.xlplugin",
-                                                @"bbassistant.xlplugin",
-                                                // @"browserhelper.xlplugin",
-                                                // @"details.xlplugin",
-                                                @"featuredpage.xlplugin",
-                                                @"feedback.xlplugin",
-                                                @"iOSThunder.xlplugin",
-                                                @"livestream.xlplugin",
-                                                // @"liveupdate.xlplugin",
-                                                @"lixianspace.xlplugin",
-                                                @"myvip.xlplugin",
-                                                // @"preferences.xlplugin",
-                                                // @"searchtask.xlplugin",
-                                                @"softmanager.xlplugin",
-                                                @"subtitle.xlplugin",
-                                                @"thunderword.xlplugin",
-                                                @"userlogin.xlplugin",
-                                                @"viprenew.xlplugin",
-                                                @"viptask.xlplugin",
-                                                @"viptips.xlplugin",
-                                                @"xiazaibao.xlplugin",
-                                                @"xlbrowser.xlplugin",
-                                                @"xlplayer.xlplugin"];
+        NSArray<NSString *> *thunderPlugins = @[
+            // @"Thunder Extension.appex",
+            @"activitycenter.xlplugin",
+            @"advertising.xlplugin",
+            // @"applications.xlplugin",
+            @"bbassistant.xlplugin",
+            // @"browserhelper.xlplugin",
+            // @"details.xlplugin",
+            // @"diagnostic.xlplugin",
+            // @"downloadhistory.xlplugin",
+            @"featuredpage.xlplugin",
+            @"feedback.xlplugin",
+            @"iOSThunder.xlplugin",
+            @"livestream.xlplugin",
+            // @"liveupdate.xlplugin",
+            @"myvip.xlplugin",
+            @"onethingcloud.xlplugin",
+            // @"preferences.xlplugin",
+            // @"searchtask.xlplugin",
+            @"softmanager.xlplugin",
+            @"subtitle.xlplugin",
+            @"thunderword.xlplugin",
+            @"transfer.xlplugin",
+            @"userlogin.xlplugin",
+            @"viprenew.xlplugin",
+            @"viptask.xlplugin",
+            @"viptips.xlplugin",
+            @"webgame.xlplugin",
+            @"xlbrowser.xlplugin",
+            @"xlplayer.xlplugin",
+        ];
         
         if (![fileManager fileExistsAtPath:thunderPath]) {
-            HEPrintln(@"没有找到迅雷。");
+            HEPrintln(@"Thunder (\"%@\") not found.", thunderPath);
             return 0;
         }
+        
+        HEPrintln(@"Find Thunder (\"%@\").", thunderPath);
         
         for (NSString *plugins in thunderPlugins) {
             NSString *pluginsPath = [thunderPluginsPath stringByAppendingPathComponent:plugins];
             if (![fileManager fileExistsAtPath:pluginsPath]) {
-                HEPrintln(@"\"%@\" 已删除。", pluginsPath);
+                HEPrintln(@"\"%@\" deleted.", pluginsPath);
                 continue;
             }
             
             NSError *error = nil;
             if (![fileManager trashItemAtURL:[NSURL fileURLWithPath:pluginsPath] resultingItemURL:nil error:&error]) {
-                HEPrintln(@"\"%@\" 删除失败。", pluginsPath);
+                HEPrintln(@"\"%@\" delete failed.", pluginsPath);
                 HEPrintln(@"%@", error);
                 continue;
             }
-            HEPrintln(@"\"%@\" 删除成功。", pluginsPath);
+            HEPrintln(@"\"%@\" delete success.", pluginsPath);
         }
-        HEPrintln(@"完成。");
+        HEPrintln(@"Done.");
     }
     return 0;
 }
