@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
         
         if (![fileManager fileExistsAtPath:thunderPath]) {
             HEPrintln(@"Thunder (\"%@\") not found.", thunderPath);
-            return 0;
+            return 1;
         }
         
         HEPrintln(@"Find Thunder (\"%@\").", thunderPath);
